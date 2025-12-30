@@ -1,3 +1,8 @@
-site_name: My Docs
+site_name: rran
 theme:
   name: 'material'
+
+nav:
+  - 首页: index.md
+  - AIT资料: material.md
+  - 个人心得: guide.md
