@@ -1,17 +1,14 @@
-# Welcome to MkDocs
+# Welcome！
+~Welcome to 111rran's Space!~
+新年快乐！syr天天开心！！！
+创建一个wiki空间，在这里放一些跟学习有关的资料，后续也方便其他同学使用，也可以放一些自己的小作文在这qwq嘻嘻嘻
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 
-## Commands
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+## 预期网页安排
+* 资料上传，研究一下怎样上传/下载最方便。
+* 学法指导
+* 个人心得，打算将自己一些科目学习心得写上去
+* 小作文TvT
 
-## Project layout
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
