@@ -1,12 +1,18 @@
 # 各类资料
-2409semester同学 将有 2502，2504，2509学期相关资料，期中期末考试试卷。
+以以往期中期末题目**模拟题**为主。
 
-<iframe src="2509AIT206Midterm.pdf" width="100%" height="600px">
-    浏览器不支持 iframe，请点击链接查看 PDF：
-    <a href="2509AIT206Midterm.pdf">查看 PDF</a>
-</iframe>
-
-[AIT206期中考试](2509AIT206Midterm.pdf)
-
+## 2409 semester
+课程内容:
+## 2502 semester
+课程内容：
+## 2504 semester
+课程内容：
+## 2509 semester
+课程内容：计算机组成，数据结构，机器学习，离散数学，矩阵分析。
+[AIT206期中考试](2509AIT206Midterm.pdf)  
+[离散数学期中](disB2509.pdf)  
+[计算机组成quiz](jizuquiz.pdf)  
+[机器学习quiz](2509AIT201quiz.pdf)  
+TVT
 
 
