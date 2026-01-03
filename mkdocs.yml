@@ -2,7 +2,16 @@ site_name: rran
 theme:
   name: 'material'
 
+repo_name: ranwiki
+repo_url: https://github.com/111rran/ranwiki
+
 nav:
-  - 首页: index.md
-  - AIT资料: material.md
-  - 个人心得: guide.md
+  - Introduction: index.md
+  - Semesters:
+    - 2409 semester: semesters_intro/2409.md
+    - 2502 semester: semesters_intro/2502.md
+    - 2504 semester: semesters_intro/2504.md
+    - 2509 semester: semesters_intro/2509.md
+  - 2026美赛备赛资料:
+    - 可视化: mcm2026/visualization.md
+    - 优秀论文: mcm2026/papers.md
