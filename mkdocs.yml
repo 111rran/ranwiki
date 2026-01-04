@@ -13,6 +13,7 @@ nav:
   - 2026美赛备赛资料:
     - 可视化: mcm2026/visualization.md
     - 优秀论文: mcm2026/papers.md
+  - 蓝桥杯: test.md
 
 theme:
   name: 'material'
