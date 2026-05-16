@@ -1,0 +1,1262 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../course-shell/">
+      
+      
+        <link rel="next" href="../semesters/Paper/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>版本控制 - XMUM Ran WIKI</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introdcution" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="XMUM Ran WIKI" class="md-header__button md-logo" aria-label="XMUM Ran WIKI" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            XMUM Ran WIKI
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              版本控制
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/111rran/ranwiki" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ranwiki
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href=".." class="md-tabs__link">
+          
+  
+  
+  网站介绍
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../test/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  动态规划
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../course-shell/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  shell脚本
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  版本控制
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../semesters/Paper/" class="md-tabs__link">
+          
+  
+  
+  XMUM-资料
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="XMUM Ran WIKI" class="md-nav__button md-logo" aria-label="XMUM Ran WIKI" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    XMUM Ran WIKI
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/111rran/ranwiki" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ranwiki
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    网站介绍
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    网站介绍
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    如何贡献
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    动态规划
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../course-shell/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    shell脚本
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    版本控制
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    XMUM-资料
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    XMUM-资料
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../semesters/Paper/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    往期试卷
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<div><h1 id="introdcution">Introdcution</h1>
+<p>版本控制系统 (VCSs) ：追踪源代码（或其他文件、文件夹）改动的工具。它帮助我们管理代码的修改历史；不仅如此，它还可以让协作编码变得更方便。VCS 通过一系列的snapshot将某个文件夹及其内容保存了起来，每个快照都包含了顶级目录中所有的文件或文件夹的完整状态。同时它还维护了快照创建者的信息以及每个快照的相关信息等等。</p>
+<p>为什么说版本控制系统非常有用？即使您只是一个人进行编程工作，它也可以帮您创建项目的快照，记录每个改动的目的、基于多分支并行开发等等。和别人协作开发时，它更是一个无价之宝，您可以看到别人对代码进行的修改，同时解决由于并行开发引起的冲突。现代的版本控制系统可以帮助您轻松地（甚至自动地）回答以下问题：</p>
+<ul>
+<li>当前模块是谁编写的？</li>
+<li>这个文件的这一行是什么时候被编辑的？是谁作出的修改？修改原因是什么呢？</li>
+<li>最近的 1000 个版本中，何时/为什么导致了单元测试失败？</li>
+</ul>
+<p>尽管版本控制系统有很多， 其事实上的标准则是 <strong>Git</strong> 。而这篇 <a href="https://xkcd.com/1597/">XKCD 漫画</a> 则反映出了人们对 Git 的评价：</p>
+<p><img alt="xkcd 1597" src="https://imgs.xkcd.com/comics/git.png"></p>
+<p>因为 Git 接口的抽象泄漏（leaky abstraction）问题，通过自顶向下的方式（从命令行接口开始）学习 Git 可能会让人感到非常困惑。很多时候您只能死记硬背一些命令行，然后像使用魔法一样使用它们，一旦出现问题，就只能像上面那幅漫画里说的那样去处理了。</p>
+<h1 id="git">Git 的数据模型</h1>
+<p>进行版本控制的方法很多。Git 拥有一个经过精心设计的模型，这使其能够支持版本控制所需的所有特性，例如维护历史记录、支持分支和促进协作。</p>
+<h2 id="snapshot">Snapshot</h2>
+<p>Tree：目录，快照则是被追踪的最顶层的树。</p>
+<p>Blob：文件对象</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>&lt;root&gt; (tree)
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>|
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>+- foo (tree)
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>|  |
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>|  + bar.txt (blob, contents = "hello world")
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>|
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>+- baz.txt (blob, contents = "git is wonderful")
+</span></code></pre></div>
+<p>这个顶层的树包含了两个元素，一个名为 "foo" 的树（它本身包含了一个 blob 对象 "bar.txt"），以及一个 blob 对象 "baz.txt"。</p>
+<h2 id="_1">历史记录建模：关联快照</h2>
+<p>版本控制系统和快照有什么关系呢？线性历史记录是一种最简单的模型，它包含了一组按照时间顺序线性排列的快照。不过出于种种原因，Git 并没有采用这样的模型。</p>
+<p>在 Git 中，历史记录是一个由快照组成的有向无环图，这代表 Git 中的每个快照都有一系列的“父辈”，也就是其之前的一系列快照。注意，快照具有多个“父辈”而非一个，因为某个快照可能由多个父辈而来。在 Git 中，这些快照被称为“提交”。</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>o &lt;-- o &lt;-- o &lt;-- o
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>            ^
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>             \
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>              --- o &lt;-- o
+</span></code></pre></div>
+<p>上面是一个 ASCII 码构成的简图，其中的 <code>o</code> 表示一次提交（快照）。</p>
+<h2 id="_2">数据模型，伪代码表示</h2>
+<p>以伪代码的形式来学习 Git 的数据模型，可能更加清晰：</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>// 文件就是一组数据
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>type blob = array&lt;byte&gt;
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>// 一个包含文件和目录的目录
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>type tree = map&lt;string, tree | blob&gt;
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>// 每个提交都包含一个父辈，元数据和顶层树
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>type commit = struct {
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>    parents: array&lt;commit&gt;
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>    author: string
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>    message: string
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>    snapshot: tree
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>}
+</span></code></pre></div>
+<p>这是一种简洁的历史模型。</p>
+<h2 id="_3">对象和内存寻址</h2>
+<p>Git 中的对象可以是 blob、树或提交：</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>type object = blob | tree | commit
+</span></code></pre></div>
+<p>Git 在储存数据时，所有的对象都会基于它们的 <a href="https://en.wikipedia.org/wiki/SHA-1">SHA-1 哈希</a> 进行寻址。</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>objects = map&lt;string, object&gt;
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>def store(object):
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    id = sha1(object)
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    objects[id] = object
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>def load(id):
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>    return objects[id]
+</span></code></pre></div>
+<p>Blobs、树和提交都一样，它们都是对象。当它们引用其他对象时，它们并没有真正的在硬盘上保存这些对象，而是仅仅保存了它们的哈希值作为引用。</p>
+<p>例子中的树（<strong>可以通过 <code>git cat-file -p 698281bc680d1995c5f4caaf3359721a5a58d48d</code> 来进行可视化</strong>）看上去是这样的：</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>100644 blob 4448adbf7ecd394f42ae135bbeed9676e894af85    baz.txt
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>040000 tree c68d233a33c5c06e0340e4c224f0afca87c8ce87    foo
+</span></code></pre></div>
+<p>树本身会包含一些指向其他内容的指针，例如 <code>baz.txt</code> (blob) 和 <code>foo</code>
+(树)。如果我们用 <code>git cat-file -p 4448adbf7ecd394f42ae135bbeed9676e894af85</code>，即通过哈希值查看 baz.txt 的内容，会得到以下信息：</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>git is wonderful
+</span></code></pre></div>
+<h2 id="_4">引用</h2>
+<p>现在，所有的快照都可以通过它们的 SHA-1 哈希值来标记了（ 40 位的十六进制字符）</p>
+<p>针对这一问题，Git 的解决方法是给这些哈希值赋予人类可读的名字，也就是引用（references）。引用是指向提交的指针。与对象不同的是，它是可变的（引用可以被更新，指向新的提交）。<strong>例如，<code>master</code> 引用通常会指向主分支的最新一次提交。</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>references = map&lt;string, string&gt;
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>def update_reference(name, id):
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>    references[name] = id
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>def read_reference(name):
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>    return references[name]
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>def load_reference(name_or_id):
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>    if name_or_id in references:
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>        return load(references[name_or_id])
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>    else:
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>        return load(name_or_id)
+</span></code></pre></div>
+<p>这样，Git 就可以使用诸如 "master" 这样人类可读的名称来表示历史记录中某个特定的提交，而不需要在使用一长串十六进制字符了。</p>
+<p>有一个细节需要我们注意， 通常情况下，我们会想要知道“我们当前所在位置”，并将其标记下来。这样当我们创建新的快照的时候，我们就可以知道它的相对位置（如何设置它的“父辈”）。在 Git 中，我们当前的位置有一个特殊的索引，它就是 "HEAD"。</p>
+<h2 id="_5">仓库</h2>
+<p>最后，我们可以粗略地给出 Git 仓库的定义了：<code>对象</code> 和 <code>引用</code>。</p>
+<p>在硬盘上，Git 仅存储对象和引用：因为其数据模型仅包含这些东西。所有的 <code>git</code> 命令都对应着对提交树的操作，例如增加对象，增加或删除引用。</p>
+<p>当您输入某个指令时，请思考一下这条命令是如何对底层的图数据结构进行操作的。另一方面，如果您希望修改提交树，例如“丢弃未提交的修改和将 ‘master’ 引用指向提交 <code>5d83f9e</code> 时，有什么命令可以完成该操作（针对这个具体问题，您可以使用 <code>git checkout master; git reset --hard 5d83f9e</code>）</p>
+<h1 id="_6">暂存区</h1>
+<p>Git 中还包括一个和数据模型完全不相关的概念，但它确是创建提交的接口的一部分。</p>
+<p>就上面介绍的快照系统来说，您也许会期望它的实现里包括一个 “创建快照” 的命令，该命令能够基于当前工作目录的当前状态创建一个全新的快照。有些版本控制系统确实是这样工作的，但 Git 不是。我们希望简洁的快照，而且每次从当前状态创建快照可能效果并不理想。例如，考虑如下场景，您开发了两个独立的特性，然后您希望创建两个独立的提交，其中第一个提交仅包含第一个特性，而第二个提交仅包含第二个特性。或者，假设您在调试代码时添加了很多打印语句，然后您仅仅希望提交和修复 bug 相关的代码而丢弃所有的打印语句。</p>
+<p>Git 处理这些场景的方法是使用一种叫做 “暂存区（staging area）”的机制，它允许您指定下次快照中要包括那些改动。</p>
+<h1 id="git_1">Git 的命令行接口</h1>
+<p>为了避免重复信息，我们将不会详细解释以下命令行。强烈推荐您阅读 <a href="https://git-scm.com/book/zh/v2">Pro Git 中文版</a> 或可以观看本讲座的视频来学习。</p>
+<p><code>git init</code> 初始化 git 仓库。</p>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="gp">$ </span>mkdir<span class="w"> </span>myproject
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>myproject
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="gp">$ </span>git<span class="w"> </span>init
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="go">Initialized empty Git repository in /home/missing-semester/myproject/.git/</span>
+</span></code></pre></div>
+<p>更改并commit：</p>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="gp">$ </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"hello, git"</span><span class="w"> </span>&gt;<span class="w"> </span>hello.txt
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="gp">$ </span>git<span class="w"> </span>add<span class="w"> </span>hello.txt
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="gp">$ </span>git<span class="w"> </span>status
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="go">On branch master</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="go">No commits yet</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="go">Changes to be committed:</span>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="go">  (use "git rm --cached &lt;file&gt;..." to unstage)</span>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="go">        new file:   hello.txt</span>
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>
+</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="gp">$ </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s1">'Initial commit'</span>
+</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="go">[master (root-commit) 4515d17] Initial commit</span>
+</span><span id="__span-9-15"><a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a><span class="go"> 1 file changed, 1 insertion(+)</span>
+</span><span id="__span-9-16"><a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a><span class="go"> create mode 100644 hello.txt</span>
+</span></code></pre></div>
+<p>至此，我们已经通过 <code>git add</code> 将文件添加到暂存区（Staging Area），随后通过 <code>git commit</code> 提交了该更改，并添加了一个简单的提交说明 "Initial commit"。既然我们已经拥有了非空的版本历史，现在就可以将其可视化。将历史记录视为一个<strong>有向无环图（DAG）</strong>，对于理解仓库当前状态以及将其与 Git 数据模型联系起来非常有帮助。<code>git log</code> 命令可以实现历史的可视化。默认情况下，它显示的是扁平化版本，这会隐藏图结构。如果你使用类似 <code>git log --all --graph --decorate</code> 的命令，它将以图表形式展示完整的仓库版本历史。</p>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="gp">$ </span>git<span class="w"> </span>log<span class="w"> </span>--all<span class="w"> </span>--graph<span class="w"> </span>--decorate<span class="w">   </span><span class="c1">#可以显示图结构，git log本身默认线性</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="go">* commit 4515d17a167bdef0a91ee7d50d75b12c9c2652aa (HEAD -&gt; master)</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="go">  Author: Missing Semester &lt;missing-semester@mit.edu&gt;</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="go">  Date:   Tue Jan 21 22:18:36 2020 -0500</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="go">      Initial commit</span>
+</span></code></pre></div>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="gp">$ </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"another line"</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>hello.txt
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="gp">$ </span>git<span class="w"> </span>status
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="go">On branch master</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="go">Changes not staged for commit:</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="go">  (use "git add &lt;file&gt;..." to update what will be committed)</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="go">  (use "git checkout -- &lt;file&gt;..." to discard changes in working directory)</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="go">        modified:   hello.txt</span>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="go">no changes added to commit (use "git add" and/or "git commit -a")</span>
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="gp">$ </span>git<span class="w"> </span>add<span class="w"> </span>hello.txt
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="gp">$ </span>git<span class="w"> </span>status
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="go">On branch master</span>
+</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="go">Changes to be committed:</span>
+</span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a><span class="go">  (use "git reset HEAD &lt;file&gt;..." to unstage)</span>
+</span><span id="__span-11-16"><a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a>
+</span><span id="__span-11-17"><a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a><span class="go">        modified:   hello.txt</span>
+</span><span id="__span-11-18"><a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a>
+</span><span id="__span-11-19"><a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a><span class="gp">$ </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s1">'Add a line'</span>
+</span><span id="__span-11-20"><a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a><span class="go">[master 35f60a8] Add a line</span>
+</span><span id="__span-11-21"><a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a><span class="go"> 1 file changed, 1 insertion(+)</span>
+</span></code></pre></div>
+<p>现在，如果我们再次可视化历史，我们将看到一些图形结构：</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>* commit 35f60a825be0106036dd2fbc7657598eb7b04c67 (HEAD -&gt; master)
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>| Author: Missing Semester &lt;missing-semester@mit.edu&gt;
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>| Date:   Tue Jan 21 22:26:20 2020 -0500
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>|
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>|     Add a line
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>|
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>* commit 4515d17a167bdef0a91ee7d50d75b12c9c2652aa
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>  Author: Anish Athalye &lt;me@anishathalye.com&gt;
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>  Date:   Tue Jan 21 22:18:36 2020 -0500
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>
+</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>      Initial commit
+</span></code></pre></div>
+<p>此外，请注意它会显示当前的 <strong>HEAD</strong> 以及当前所属的分支（<strong>master</strong>）。我们可以使用 <code>git checkout</code> 命令来查看旧版本。</p>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="gp">$ </span>git<span class="w"> </span>checkout<span class="w"> </span>4515d17<span class="w">  </span><span class="c1"># previous commit hash; yours will be different</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="go">Note: checking out '4515d17'.</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="go">You are in 'detached HEAD' state. You can look around, make experimental</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="go">changes and commit them, and you can discard any commits you make in this</span>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="go">state without impacting any branches by performing another checkout.</span>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="go">If you want to create a new branch to retain commits you create, you may</span>
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="go">do so (now or later) by using -b with the checkout command again. Example:</span>
+</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a>
+</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a><span class="go">  git checkout -b &lt;new-branch-name&gt;</span>
+</span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a>
+</span><span id="__span-13-13"><a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a><span class="go">HEAD is now at 4515d17 Initial commit</span>
+</span><span id="__span-13-14"><a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a><span class="gp">$ </span>cat<span class="w"> </span>hello.txt
+</span><span id="__span-13-15"><a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a><span class="go">hello, git</span>
+</span><span id="__span-13-16"><a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a><span class="gp">$ </span>git<span class="w"> </span>checkout<span class="w"> </span>master
+</span><span id="__span-13-17"><a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a><span class="go">Previous HEAD position was 4515d17 Initial commit</span>
+</span><span id="__span-13-18"><a id="__codelineno-13-18" name="__codelineno-13-18" href="#__codelineno-13-18"></a><span class="go">Switched to branch 'master'</span>
+</span><span id="__span-13-19"><a id="__codelineno-13-19" name="__codelineno-13-19" href="#__codelineno-13-19"></a><span class="gp">$ </span>cat<span class="w"> </span>hello.txt
+</span><span id="__span-13-20"><a id="__codelineno-13-20" name="__codelineno-13-20" href="#__codelineno-13-20"></a><span class="go">hello, git</span>
+</span><span id="__span-13-21"><a id="__codelineno-13-21" name="__codelineno-13-21" href="#__codelineno-13-21"></a><span class="go">another line</span>
+</span></code></pre></div>
+<p><code>git diff</code>  展现差异</p>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="gp">$ </span>git<span class="w"> </span>diff<span class="w"> </span>4515d17<span class="w"> </span>hello.txt
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="go">diff --git c/hello.txt w/hello.txt</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="go">index 94bab17..f0013b2 100644</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="go">--- c/hello.txt</span>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="go">+++ w/hello.txt</span>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="go">@@ -1 +1,2 @@</span>
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="go"> hello, git</span>
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="go"> +another line</span>
+</span></code></pre></div>
+<ul>
+<li><code>git help &lt;command&gt;</code>: 获取 git 命令的帮助信息</li>
+<li><code>git init</code>: 创建一个新的 git 仓库，其数据会存放在一个名为 <code>.git</code> 的目录下</li>
+<li><code>git status</code>: 显示当前的仓库状态</li>
+<li><code>git add &lt;filename&gt;</code>: 添加文件到暂存区</li>
+<li><code>git commit</code>: 创建一个新的提交<ul>
+<li>如何编写 <a href="https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html">良好的提交信息</a>!</li>
+<li>为何要 <a href="https://chris.beams.io/posts/git-commit/">编写良好的提交信息</a></li>
+</ul>
+</li>
+<li><code>git log</code>: 显示历史日志</li>
+<li><code>git log --all --graph --decorate</code>: 可视化历史记录（有向无环图）</li>
+<li><code>git diff &lt;filename&gt;</code>: 显示与暂存区文件的差异</li>
+<li><code>git diff &lt;revision&gt; &lt;filename&gt;</code>: 显示某个文件两个版本之间的差异</li>
+<li><code>git checkout &lt;revision&gt;</code>: 更新 HEAD（如果是检出分支则同时更新当前分支）</li>
+</ul>
+<p>分支允许您“分叉”版本历史记录。它对工作有帮助</p>
+<p>独立功能或并行修复错误。Git分支命令可以</p>
+<p>用于创建新分支； <code>git checkout -b &lt;branch name&gt;</code> creates and
+branch and checks it out.</p>
+<p>Merging is the opposite of branching: it allows you to combine forked version
+histories, e.g. merging a feature branch back into master. The <code>git merge</code>
+command is used for merging.</p>
+<ul>
+<li><code>git branch</code>: 显示分支</li>
+<li><code>git branch &lt;name&gt;</code>: 创建分支</li>
+<li><code>git checkout -b &lt;name&gt;</code>: 创建分支并切换到该分支<ul>
+<li>相当于 <code>git branch &lt;name&gt;; git checkout &lt;name&gt;</code></li>
+</ul>
+</li>
+<li><code>git merge &lt;revision&gt;</code>: 合并到当前分支</li>
+<li><code>git mergetool</code>: 使用工具来处理合并冲突</li>
+<li><code>git rebase</code>: 将一系列补丁变基（rebase）为新的基线</li>
+</ul>
+<h2 id="_7">远端操作</h2>
+<ul>
+<li><code>git remote</code>: 列出远端</li>
+<li><code>git remote add &lt;name&gt; &lt;url&gt;</code>: 添加一个远端</li>
+<li><code>git push &lt;remote&gt; &lt;local branch&gt;:&lt;remote branch&gt;</code>: 将对象传送至远端并更新远端引用</li>
+<li><code>git branch --set-upstream-to=&lt;remote&gt;/&lt;remote branch&gt;</code>: 创建本地和远端分支的关联关系</li>
+<li><code>git fetch</code>: 从远端获取对象/索引</li>
+<li><code>git pull</code>: 相当于 <code>git fetch; git merge</code></li>
+<li><code>git clone</code>: 从远端下载仓库</li>
+</ul>
+<h2 id="_8">撤销</h2>
+<ul>
+<li><code>git commit --amend</code>: 编辑提交的内容或信息</li>
+<li><code>git reset HEAD &lt;file&gt;</code>: 恢复暂存的文件</li>
+<li><code>git checkout -- &lt;file&gt;</code>: 丢弃修改</li>
+<li><code>git restore</code>: git2.32 版本后取代 git reset 进行许多撤销操作</li>
+</ul>
+<h1 id="git_2">Git 高级操作</h1>
+<ul>
+<li><code>git config</code>: Git 是一个 <a href="https://git-scm.com/docs/git-config">高度可定制的</a> 工具</li>
+<li><code>git clone --depth=1</code>: 浅克隆（shallow clone），不包括完整的版本历史信息</li>
+<li><code>git add -p</code>: 交互式暂存</li>
+<li><code>git rebase -i</code>: 交互式变基</li>
+<li><code>git blame</code>: 查看最后修改某行的人</li>
+<li><code>git stash</code>: 暂时移除工作目录下的修改内容</li>
+<li><code>git bisect</code>: 通过二分查找搜索历史记录</li>
+<li><code>.gitignore</code>: <a href="https://git-scm.com/docs/gitignore">指定</a> 故意不追踪的文件</li>
+</ul>
+<h1 id="_9">杂项</h1>
+<ul>
+<li><strong>图形用户界面</strong>: Git 的 <a href="https://git-scm.com/downloads/guis">图形用户界面客户端</a> 有很多，但是我们自己并不使用这些图形用户界面的客户端，我们选择使用命令行接口</li>
+<li><strong>Shell 集成</strong>: 将 Git 状态集成到您的 shell 中会非常方便。(<a href="https://github.com/olivierverdier/zsh-git-prompt">zsh</a>, <a href="https://github.com/magicmonty/bash-git-prompt">bash</a>)。<a href="https://github.com/ohmyzsh/ohmyzsh">Oh My Zsh</a> 这样的框架中一般已经集成了这一功能</li>
+<li><strong>编辑器集成</strong>: 和上面一条类似，将 Git 集成到编辑器中好处多多。<a href="https://github.com/tpope/vim-fugitive">fugitive.vim</a> 是 Vim 中集成 Git 的常用插件</li>
+<li><strong>工作流</strong>: 我们已经讲解了数据模型与一些基础命令，但还没讨论到进行大型项目时的一些惯例 (
+有 <a href="https://nvie.com/posts/a-successful-git-branching-model/">很多</a>,,,<a href="https://www.endoflineblog.com/gitflow-considered-harmful">不同的</a>,,,<a href="https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow">处理方法</a>)</li>
+<li><strong>GitHub</strong>: Git 并不等同于 GitHub。 在 GitHub 中您需要使用一个被称作 <a href="https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests">拉取请求（pull request）</a> 的方法来向其他项目贡献代码</li>
+<li><strong>其他 Git 提供商</strong>: GitHub 并不是唯一的。还有像 <a href="https://about.gitlab.com/">GitLab</a> 和 <a href="https://bitbucket.org/">BitBucket</a> 这样的平台。</li>
+</ul>
+<h1 id="_10">资源</h1>
+<ul>
+<li><a href="https://git-scm.com/book/en/v2">Pro Git</a> ，<strong>强烈推荐</strong>！学习前五章的内容可以教会您流畅使用 Git 的绝大多数技巧，因为您已经理解了 Git 的数据模型。后面的章节提供了很多有趣的高级主题。（<a href="https://git-scm.com/book/zh/v2">Pro Git 中文版</a>）；</li>
+<li><a href="https://ohshitgit.com/">Oh Shit, Git!?!</a> ，简短的介绍了如何从 Git 错误中恢复；</li>
+<li><a href="https://eagain.net/articles/git-for-computer-scientists/">Git for Computer Scientists</a> ，简短的介绍了 Git 的数据模型，与本文相比包含较少量的伪代码以及大量的精美图片；</li>
+<li><a href="https://jwiegley.github.io/git-from-the-bottom-up/">Git from the Bottom Up</a> 详细的介绍了 Git 的实现细节，而不仅仅局限于数据模型。好奇的同学可以看看；</li>
+<li><a href="https://smusamashah.github.io/blog/2017/10/14/explain-git-in-simple-words">How to explain git in simple words</a>；</li>
+<li><a href="https://learngitbranching.js.org/">Learn Git Branching</a> 通过基于浏览器的游戏来学习 Git ；</li>
+</ul>
+<h1 id="_11">课后练习</h1>
+<p><a href="{{site.url}}/{{site.solution_url}}/{{page.solution.url}}">习题解答</a>
+1. 如果您之前从来没有用过 Git，推荐您阅读 <a href="https://git-scm.com/book/en/v2">Pro Git</a> 的前几章，或者完成像 <a href="https://learngitbranching.js.org/">Learn Git Branching</a> 这样的教程。重点关注 Git 命令和数据模型相关内容；
+2. 克隆 <a href="https://github.com/missing-semester-cn/missing-semester-cn.github.io.git">本课程网站的仓库</a>
+    1. 将版本历史可视化并进行探索
+    2. 是谁最后修改了 <code>README.md</code> 文件？（提示：使用 <code>git log</code> 命令并添加合适的参数）
+    3. 最后一次修改 <code>_config.yml</code> 文件中 <code>collections:</code> 行时的提交信息是什么？（提示：使用 <code>git blame</code> 和 <code>git show</code>）
+3. 使用 Git 时的一个常见错误是提交本不应该由 Git 管理的大文件，或是将含有敏感信息的文件提交给 Git 。尝试向仓库中添加一个文件并添加提交信息，然后将其从历史中删除 ( <a href="https://help.github.com/articles/removing-sensitive-data-from-a-repository/">这篇文章也许会有帮助</a>)；
+4. 从 GitHub 上克隆某个仓库，修改一些文件。当您使用 <code>git stash</code> 会发生什么？当您执行 <code>git log --all --oneline</code> 时会显示什么？通过 <code>git stash pop</code> 命令来撤销 <code>git stash</code> 操作，什么时候会用到这一技巧？
+5. 与其他的命令行工具一样，Git 也提供了一个名为 <code>~/.gitconfig</code> 配置文件 (或 dotfile)。请在 <code>~/.gitconfig</code> 中创建一个别名，使您在运行 <code>git graph</code> 时，您可以得到 <code>git log --all --graph --decorate --oneline</code> 的输出结果；
+6. 您可以通过执行 <code>git config --global core.excludesfile ~/.gitignore_global</code> 来设置全局忽略文件的位置，这会告诉 Git 使用该文件，但您仍需要手动在该路径创建 <code>~/.gitignore_global</code> 文件。配置您的全局 gitignore 文件来自动忽略系统或编辑器的临时文件，例如 <code>.DS_Store</code>；
+7. Fork <a href="https://github.com/missing-semester-cn/missing-semester-cn.github.io.git">本课程网站的仓库</a>，找找有没有错别字或其他可以改进的地方，在 GitHub 上发起拉取请求（Pull Request)；</p>
+<h1 id="_12">个人笔记</h1>
+<p><code>git log --all --graph --decorate</code></p>
+<p><code>git checkout 42fb7a</code> 会回到历史值（你访问的哈希值对应的值）所以使用它可能有一些问题比如 checkout -f可能强制修改，删除你的更改。</p>
+<p>head-&gt; master 说明目前查看的是最新版本 如果head指向别处，此时查看的就是head处的版本</p>
+<p><code>git diff hello.txt</code> 当前目录自从上次snapshot以来发生了什么更改 也可以写成<code>git diff HEAD hello.txt</code></p>
+<p>如显示 ：+123321</p>
+<p>提问：如果目前head -&gt; master 为什么会有不同呢？</p>
+<p>​     指向的跟你做的更改不同，目前状态会准备拍下一张指向当前状态的snapshot。</p>
+<p><code>git diff 42fb7a HEAD hello.txt</code> 比较历史版本之间同理。</p>
+<p><strong>分支</strong></p>
+<p><code>git branch</code>列出所有存在分支</p>
+<p><code>git branch -vv</code> 更详细信息</p>
+<p><code>git branch cat</code> 创建新分支（名为cat）cat为new reference 此时和head指向同一个提交。</p>
+<p>​   此时再git log --all --graph --decorate:  会出现：(<strong>HEAD -&gt; </strong>master, cat) </p>
+<p>如果先git checkout cat 再 git log --all --graph --decorate 会出现(<strong>HEAD -&gt; </strong>cat, master) </p>
+<p>例：在cat分支下我们对animal.py进行更改，进行commit 注释 Add cat functionality</p>
+<p><code>git log --all --graph --decorate --oneline</code>:</p>
+<p>输出： </p>
+<ul>
+<li>
+<p>﻿﻿77c2f64 (HEAD -&gt; cat) Add cat functionality</p>
+</li>
+<li>
+<p>﻿﻿fee0731 (master) Add animal.py</p>
+</li>
+<li>
+<p>﻿﻿62da510 X</p>
+</li>
+<li>
+<p>﻿﻿42fb7a2 Add hello.txt</p>
+</li>
+</ul>
+<p>依旧为线性的，master指向原先位置，HEAD指向cat</p>
+<p>再checkout master 此时就没有我们添加的cat函数了，也可以再checkout cat回到有cat函数的版本！</p>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="go">* (cat)</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="go">* (HEAD -&gt; master)</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="go">&gt; git branch dog;git checkout dog</span>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="go">相当于：</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="go">&gt; git checkout -b dog</span>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="go">此时:</span>
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="go">* (cat)</span>
+</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="go">* (HEAD -&gt; dog, master)</span>
+</span></code></pre></div>
+<p>在dog分支下我们设计dog函数后commit，注释 Add dog functionality后：</p>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="go">&gt; git log --all --graph --decorate --oneline</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="go">*9692b9e (HEAD -&gt; dog) Add dog functionality</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="go">|   *77c2f64 (cat) Add cat functionality</span>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="go">|   /</span>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="go">*fee0731 (master) Add animal.py</span>
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="go">*62da510 x</span>
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="go">*42fb7a2 Add hello.txt</span>
+</span></code></pre></div>
+<p>并行开发了不同的功能！合并回主开发线： git merge</p>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="go">&gt; git checkout master</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="go">&gt; git merge cat</span>
+</span></code></pre></div>
+<p>Fast-forward：我们cat本身就基于master状态下更新的，不会遇到冲突。</p>
+<p><code>&gt; git merge dog</code>:</p>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="go">Auto-merging animal.py</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="go">CONFLICT (content): Merge conflict in animal.py</span>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="go">Automatic merge failed; fix conflicts and then commit the result.</span>
+</span></code></pre></div>
+<p><strong>merge conflict</strong></p>
+<p>git解决冲突： git mergetool</p>
+<p><code>git merge --abort</code> 回到git merge之前的状态</p>
+<p><code>vim animal.py</code> 手动解决冲突 然后 <code>git merge --continue</code></p>
+<p><strong>remote</strong></p>
+<p>为了方便演示用本地作为remote 仓库 </p>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="go">&gt; git remote add origin ../remote</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="go">&gt; git push origin master:master</span>
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="go">在远端仓库上创建了名为master的分支，此分支和本地master一致。 \*[new branch]  master-&gt;master</span>
+</span></code></pre></div>
+<p>此时查看我们的关联快照图：</p>
+<p>* 0f303dc  (HEAD -&gt; master, <strong>origin/master*</strong>) Merge branch 'dog'</p>
+<p>| \</p>
+<p>| * 9692b9e (dog) Add dog functionality</p>
+<p>*  | 77c2f64 (cat) Add cat functionality</p>
+<p>|  /</p>
+<p>*﻿﻿ fee0731 Add animal.py</p>
+<p>* 62da510 x</p>
+<p>* 42fb7a2 Add hello.txt</p>
+<p>在本地更改并commit -m "x"后：</p>
+<p>*7c62a4a (HEAD -&gt; master) x</p>
+<p>* 0f303dc  (<strong>origin/master*</strong>) Merge branch 'dog'</p>
+<p>| \</p>
+<p>| * 9692b9e (dog) Add dog functionality</p>
+<p>*  | 77c2f64 (cat) Add cat functionality</p>
+<p>|  /</p>
+<p>*﻿﻿ fee0731 Add animal.py</p>
+<p>* 62da510 x</p>
+<p>* 42fb7a2 Add hello.txt</p>
+<p>只能看到origin/master*处，看不到我们本地最新更改！ </p>
+<p>例如：我们假设另一个协作者叫做demo2（在machine2）</p>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="go">&gt; git clone ./remote demo2</span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="go">Cloning into demo2...</span>
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="go">Done.</span>
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="go">&gt; cd demo2</span>
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="go">demo2 &gt; git log --all --graph --decorate --oneline</span>
+</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="go">* of303dc (HEAD -&gt; master, origin/master, origin/HEAD )Merge branch 'dog'</span>
+</span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a><span class="go">* 9692b9e Add dog functionality</span>
+</span><span id="__span-20-8"><a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a><span class="go">* | 77c2f64 Add cat functionality</span>
+</span><span id="__span-20-9"><a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a><span class="go">* fee0731 Add animal.py</span>
+</span><span id="__span-20-10"><a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a><span class="go">* 62da510 x</span>
+</span><span id="__span-20-11"><a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a><span class="go">* 42fb7a2 Add hello.txt</span>
+</span><span id="__span-20-12"><a id="__codelineno-20-12" name="__codelineno-20-12" href="#__codelineno-20-12"></a>
+</span><span id="__span-20-13"><a id="__codelineno-20-13" name="__codelineno-20-13" href="#__codelineno-20-13"></a><span class="go">machine1上推送（git push origin master:master）之后 我们看machine2最新的图： </span>
+</span><span id="__span-20-14"><a id="__codelineno-20-14" name="__codelineno-20-14" href="#__codelineno-20-14"></a><span class="go">demo &gt; git log --all --graph --decorate --oneline</span>
+</span><span id="__span-20-15"><a id="__codelineno-20-15" name="__codelineno-20-15" href="#__codelineno-20-15"></a><span class="go">* 7c62a4a (HEAD -&gt; master*) x</span>
+</span><span id="__span-20-16"><a id="__codelineno-20-16" name="__codelineno-20-16" href="#__codelineno-20-16"></a><span class="go">* Of303dc (origin/master) Merge branch 'dog'</span>
+</span><span id="__span-20-17"><a id="__codelineno-20-17" name="__codelineno-20-17" href="#__codelineno-20-17"></a><span class="go">| * 9692b9e (dog) Add dog functionality</span>
+</span><span id="__span-20-18"><a id="__codelineno-20-18" name="__codelineno-20-18" href="#__codelineno-20-18"></a><span class="go">* | 77c2f64 (cat) Add cat functionality</span>
+</span><span id="__span-20-19"><a id="__codelineno-20-19" name="__codelineno-20-19" href="#__codelineno-20-19"></a><span class="go">* fee0731 Add animal.py</span>
+</span><span id="__span-20-20"><a id="__codelineno-20-20" name="__codelineno-20-20" href="#__codelineno-20-20"></a><span class="go">* 62da510 x</span>
+</span><span id="__span-20-21"><a id="__codelineno-20-21" name="__codelineno-20-21" href="#__codelineno-20-21"></a><span class="go">* 42fb7a2 Add hello.txt</span>
+</span></code></pre></div>
+<p>push那句话很长我们适当更改：</p>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="go">../demo &gt; git branch --set-upstream-to=origin/master</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="go">Branch 'master' set up to track remote branch 'master' from 'origin'.</span>
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="go">告诉 Git：本地的 master 分支以后要和远程仓库（origin）的 master 分支“绑定”在一起。这样做的好处是，以后只需输入 git push 或 git pull，Git 就知道去哪里推代码或拉代码，不需要再指定参数。</span>
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>
+</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>
+</span><span id="__span-21-7"><a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a><span class="go">.../demo &gt; git branch -vv</span>
+</span><span id="__span-21-8"><a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a><span class="go">cat 77c2f64 Add cat functionality</span>
+</span><span id="__span-21-9"><a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a><span class="go">dog 9692b9e Add dog functionality</span>
+</span><span id="__span-21-10"><a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a><span class="go">* master 7c62a4a [origin/master: ahead 1] x </span>
+</span><span id="__span-21-11"><a id="__codelineno-21-11" name="__codelineno-21-11" href="#__codelineno-21-11"></a><span class="go">表示你本地有一个提交（commit）还没有推送到远程，比远程分支“领先” 1 个版本。</span>
+</span><span id="__span-21-12"><a id="__codelineno-21-12" name="__codelineno-21-12" href="#__codelineno-21-12"></a>
+</span><span id="__span-21-13"><a id="__codelineno-21-13" name="__codelineno-21-13" href="#__codelineno-21-13"></a>
+</span><span id="__span-21-14"><a id="__codelineno-21-14" name="__codelineno-21-14" href="#__codelineno-21-14"></a><span class="go">.../demo &gt; git push</span>
+</span><span id="__span-21-15"><a id="__codelineno-21-15" name="__codelineno-21-15" href="#__codelineno-21-15"></a><span class="go">Enumerating objects: 5, done.</span>
+</span><span id="__span-21-16"><a id="__codelineno-21-16" name="__codelineno-21-16" href="#__codelineno-21-16"></a><span class="go">Counting objects: 100% (5/5), done.</span>
+</span><span id="__span-21-17"><a id="__codelineno-21-17" name="__codelineno-21-17" href="#__codelineno-21-17"></a><span class="go">Delta compression using up to 8 threads Compressing objects: 100% (3/3), done.</span>
+</span><span id="__span-21-18"><a id="__codelineno-21-18" name="__codelineno-21-18" href="#__codelineno-21-18"></a><span class="go">Writing objects: 100% (3/3), 310 bytes | 310.00 KiB/s, done.</span>
+</span><span id="__span-21-19"><a id="__codelineno-21-19" name="__codelineno-21-19" href="#__codelineno-21-19"></a><span class="go">Total 3 (delta 1), reused 0 (delta 0)</span>
+</span><span id="__span-21-20"><a id="__codelineno-21-20" name="__codelineno-21-20" href="#__codelineno-21-20"></a><span class="go">To ../remote</span>
+</span><span id="__span-21-21"><a id="__codelineno-21-21" name="__codelineno-21-21" href="#__codelineno-21-21"></a><span class="go">0f303dc.. 7c62a4a</span>
+</span></code></pre></div>
+<p><strong>本来应该使用git push origin master:master,但是现在它知道我要推送到origin/master</strong></p>
+<p>执行： <code>git branch --set-upstream-to=origin/master</code> Git 会在 <code>.git/config</code> 配置文件中记录如下映射：</p>
+<ul>
+<li><strong>本地分支 <code>master</code></strong> 对应 <strong>远程主机 <code>origin</code></strong>。</li>
+<li><strong>本地分支 <code>master</code></strong> 对应 <strong>远程分支 <code>master</code></strong>。</li>
+</ul>
+<p>现在回到machine2</p>
+<p><code>git fetch</code></p>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="go">.../demo2 &gt; git log --all --graph --decorate --oneline:</span>
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="go">* 7c62a4a (origin/master, origin/HEAD) X</span>
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="go">* 0f303dc (HEAD -&gt; master) Merge branch 'dog'</span>
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="go">* 9692b9e Add dog functionality</span>
+</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="go">* | 77c2f64 Add cat functionality</span>
+</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="go">* fee0731 Add animal.py</span>
+</span><span id="__span-22-7"><a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a><span class="go">* 62da510 x</span>
+</span><span id="__span-22-8"><a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a><span class="go">* 42fb7a2_ Add hello.txt</span>
+</span></code></pre></div>
+<p>git fetch 不更改本地，告诉我们origin/master已经指向最新版本 x提交处了！</p>
+<p>再用 <code>git merge</code> 即可</p>
+<p>两个指令放一起等价于输入: <code>git pull</code></p>
+<p><code>git clone ./remote demo2</code>:获取远程仓库副本并初始化本地仓库 </p>
+<p><strong>gitignore</strong></p>
+<p>git rm -r --cached build 如果已经被git 跟踪，放入.gitignore依旧会被自动跟踪，使用这句话让其在git中删除，再git commit和push 远程仓库里的就消失不见了（历史版本有）</p></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../course-shell/" class="md-footer__link md-footer__link--prev" aria-label="Previous: shell脚本">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                shell脚本
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../semesters/Paper/" class="md-footer__link md-footer__link--next" aria-label="Next: 往期试卷">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                往期试卷
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 - 2025 lkkkkt
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.tracking", "navigation.footer", "content.code.select", "content.code.copy", "search.highlight"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
