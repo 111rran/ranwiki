@@ -12,14 +12,14 @@
         <link rel="prev" href="../../version-control/">
       
       
-        <link rel="next" href="../../semesters/Paper/">
+        <link rel="next" href="../../papers/Engram/">
       
       
         
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
     
       
@@ -317,6 +317,26 @@
 
       </a>
     </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../papers/Engram/" class="md-tabs__link">
+          
+  
+  
+  论文解读
+
+        </a>
+      </li>
+    
   
 
       
@@ -742,7 +762,7 @@
   <span class="md-ellipsis">
     
   
-    XMUM-资料
+    论文解读
   
 
     
@@ -755,6 +775,93 @@
         
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    论文解读
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../papers/Engram/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Engram
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    XMUM-资料
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -876,7 +983,7 @@ Deliverable: An example, with a one-sentence explanation.</p>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="c1">#相比于 UTF-16 或 UTF-32，UTF-8 与 ASCII 完全兼容，且在处理英文及代码等低码位字符时具有更高的空间利用率，</span>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="c1">#能够有效减少词表体积并降低 Token 序列的平均长度。此外，UTF-8 作为变长编码不涉及字节序（Endianness）问题，在处理多语言混合文本时表现出更强的鲁棒性和普适性。</span>
 </span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1">#(b)Incorrect Function:</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="k">def</span> <span class="nf">decode_utf8_bytes_to_str_wrong</span><span class="p">(</span><span class="n">bytestring</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">):</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="k">def</span><span class="w"> </span><span class="nf">decode_utf8_bytes_to_str_wrong</span><span class="p">(</span><span class="n">bytestring</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">):</span>
 </span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>  <span class="k">return</span> <span class="s2">""</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="nb">bytes</span><span class="p">([</span><span class="n">b</span><span class="p">])</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">bytestring</span><span class="p">])</span>
 </span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="nb">print</span><span class="p">(</span><span class="n">decode_utf8_bytes_to_str_wrong</span><span class="p">(</span><span class="s2">"hello"</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">"utf-8"</span><span class="p">)))</span>
 </span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="c1">#decode_utf8_bytes_to_str_wrong("世界".encode("utf-8"))</span>
@@ -1056,13 +1163,13 @@ implementation should be able to pass all tests.</p>
         
         
           
-          <a href="../../semesters/Paper/" class="md-footer__link md-footer__link--next" aria-label="Next: 往期试卷">
+          <a href="../../papers/Engram/" class="md-footer__link md-footer__link--next" aria-label="Next: Engram">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                往期试卷
+                Engram
               </div>
             </div>
             <div class="md-footer__button md-icon">
