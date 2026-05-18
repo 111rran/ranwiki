@@ -1,19 +1,28 @@
-site_name: rran
+site_name: XMUM Ran WIKI
 
 repo_name: ranwiki
 repo_url: https://github.com/111rran/ranwiki
 
 nav:
-  - Introduction: index.md
-  - Semesters:
-    - 2409 semester: semesters_intro/2409.md
-    - 2502 semester: semesters_intro/2502.md
-    - 2504 semester: semesters_intro/2504.md
-    - 2509 semester: semesters_intro/2509.md
-  - 2026美赛备赛资料:
-    - 可视化: mcm2026/visualization.md
-    - 优秀论文: mcm2026/papers.md
-  - 蓝桥杯: test.md
+  - 网站介绍: 
+    - 首页 : index.md
+    - 如何贡献 : contributing.md
+  - 动态规划: test.md
+  - shell脚本:
+    - shell入门: course-shell.md
+    - shell工具: shell-tools.md
+  - 版本控制: version-control.md
+  - CS336: cs336/assignment1.md
+  - 论文解读:
+    - Engram: papers/Engram.md
+  - XMUM-资料:
+    - 往期试卷: semesters/Paper.md
+
+
+
+
+
+
 
 theme:
   name: 'material'
