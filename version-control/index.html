@@ -684,6 +684,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    版本控制
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -700,6 +718,213 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#git" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Git 的数据模型
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Git 的数据模型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#snapshot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Snapshot
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        历史记录建模：关联快照
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        数据模型，伪代码表示
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        对象和内存寻址
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        引用
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        仓库
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        暂存区
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Git 的命令行接口
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Git 的命令行接口">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        远端操作
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        撤销
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Git 高级操作
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        杂项
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        资源
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        课后练习
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        个人笔记
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -926,6 +1151,202 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#git" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Git 的数据模型
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Git 的数据模型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#snapshot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Snapshot
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        历史记录建模：关联快照
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        数据模型，伪代码表示
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        对象和内存寻址
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        引用
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        仓库
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        暂存区
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Git 的命令行接口
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Git 的命令行接口">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        远端操作
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        撤销
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Git 高级操作
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        杂项
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        资源
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        课后练习
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        个人笔记
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -955,9 +1376,9 @@
 <p>尽管版本控制系统有很多， 其事实上的标准则是 <strong>Git</strong> 。而这篇 <a href="https://xkcd.com/1597/">XKCD 漫画</a> 则反映出了人们对 Git 的评价：</p>
 <p><img alt="xkcd 1597" src="https://imgs.xkcd.com/comics/git.png"></p>
 <p>因为 Git 接口的抽象泄漏（leaky abstraction）问题，通过自顶向下的方式（从命令行接口开始）学习 Git 可能会让人感到非常困惑。很多时候您只能死记硬背一些命令行，然后像使用魔法一样使用它们，一旦出现问题，就只能像上面那幅漫画里说的那样去处理了。</p>
-<h1 id="git">Git 的数据模型</h1>
+<h2 id="git">Git 的数据模型</h2>
 <p>进行版本控制的方法很多。Git 拥有一个经过精心设计的模型，这使其能够支持版本控制所需的所有特性，例如维护历史记录、支持分支和促进协作。</p>
-<h2 id="snapshot">Snapshot</h2>
+<h3 id="snapshot">Snapshot</h3>
 <p>Tree：目录，快照则是被追踪的最顶层的树。</p>
 <p>Blob：文件对象</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>&lt;root&gt; (tree)
@@ -969,7 +1390,7 @@
 </span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>+- baz.txt (blob, contents = "git is wonderful")
 </span></code></pre></div>
 <p>这个顶层的树包含了两个元素，一个名为 "foo" 的树（它本身包含了一个 blob 对象 "bar.txt"），以及一个 blob 对象 "baz.txt"。</p>
-<h2 id="_1">历史记录建模：关联快照</h2>
+<h3 id="_1">历史记录建模：关联快照</h3>
 <p>版本控制系统和快照有什么关系呢？线性历史记录是一种最简单的模型，它包含了一组按照时间顺序线性排列的快照。不过出于种种原因，Git 并没有采用这样的模型。</p>
 <p>在 Git 中，历史记录是一个由快照组成的有向无环图，这代表 Git 中的每个快照都有一系列的“父辈”，也就是其之前的一系列快照。注意，快照具有多个“父辈”而非一个，因为某个快照可能由多个父辈而来。在 Git 中，这些快照被称为“提交”。</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>o &lt;-- o &lt;-- o &lt;-- o
@@ -978,7 +1399,7 @@
 </span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>              --- o &lt;-- o
 </span></code></pre></div>
 <p>上面是一个 ASCII 码构成的简图，其中的 <code>o</code> 表示一次提交（快照）。</p>
-<h2 id="_2">数据模型，伪代码表示</h2>
+<h3 id="_2">数据模型，伪代码表示</h3>
 <p>以伪代码的形式来学习 Git 的数据模型，可能更加清晰：</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>// 文件就是一组数据
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>type blob = array&lt;byte&gt;
@@ -995,7 +1416,7 @@
 </span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>}
 </span></code></pre></div>
 <p>这是一种简洁的历史模型。</p>
-<h2 id="_3">对象和内存寻址</h2>
+<h3 id="_3">对象和内存寻址</h3>
 <p>Git 中的对象可以是 blob、树或提交：</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>type object = blob | tree | commit
 </span></code></pre></div>
@@ -1018,7 +1439,7 @@
 (树)。如果我们用 <code>git cat-file -p 4448adbf7ecd394f42ae135bbeed9676e894af85</code>，即通过哈希值查看 baz.txt 的内容，会得到以下信息：</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>git is wonderful
 </span></code></pre></div>
-<h2 id="_4">引用</h2>
+<h3 id="_4">引用</h3>
 <p>现在，所有的快照都可以通过它们的 SHA-1 哈希值来标记了（ 40 位的十六进制字符）</p>
 <p>针对这一问题，Git 的解决方法是给这些哈希值赋予人类可读的名字，也就是引用（references）。引用是指向提交的指针。与对象不同的是，它是可变的（引用可以被更新，指向新的提交）。<strong>例如，<code>master</code> 引用通常会指向主分支的最新一次提交。</strong></p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>references = map&lt;string, string&gt;
@@ -1037,15 +1458,15 @@
 </span></code></pre></div>
 <p>这样，Git 就可以使用诸如 "master" 这样人类可读的名称来表示历史记录中某个特定的提交，而不需要在使用一长串十六进制字符了。</p>
 <p>有一个细节需要我们注意， 通常情况下，我们会想要知道“我们当前所在位置”，并将其标记下来。这样当我们创建新的快照的时候，我们就可以知道它的相对位置（如何设置它的“父辈”）。在 Git 中，我们当前的位置有一个特殊的索引，它就是 "HEAD"。</p>
-<h2 id="_5">仓库</h2>
+<h3 id="_5">仓库</h3>
 <p>最后，我们可以粗略地给出 Git 仓库的定义了：<code>对象</code> 和 <code>引用</code>。</p>
 <p>在硬盘上，Git 仅存储对象和引用：因为其数据模型仅包含这些东西。所有的 <code>git</code> 命令都对应着对提交树的操作，例如增加对象，增加或删除引用。</p>
 <p>当您输入某个指令时，请思考一下这条命令是如何对底层的图数据结构进行操作的。另一方面，如果您希望修改提交树，例如“丢弃未提交的修改和将 ‘master’ 引用指向提交 <code>5d83f9e</code> 时，有什么命令可以完成该操作（针对这个具体问题，您可以使用 <code>git checkout master; git reset --hard 5d83f9e</code>）</p>
-<h1 id="_6">暂存区</h1>
+<h2 id="_6">暂存区</h2>
 <p>Git 中还包括一个和数据模型完全不相关的概念，但它确是创建提交的接口的一部分。</p>
 <p>就上面介绍的快照系统来说，您也许会期望它的实现里包括一个 “创建快照” 的命令，该命令能够基于当前工作目录的当前状态创建一个全新的快照。有些版本控制系统确实是这样工作的，但 Git 不是。我们希望简洁的快照，而且每次从当前状态创建快照可能效果并不理想。例如，考虑如下场景，您开发了两个独立的特性，然后您希望创建两个独立的提交，其中第一个提交仅包含第一个特性，而第二个提交仅包含第二个特性。或者，假设您在调试代码时添加了很多打印语句，然后您仅仅希望提交和修复 bug 相关的代码而丢弃所有的打印语句。</p>
 <p>Git 处理这些场景的方法是使用一种叫做 “暂存区（staging area）”的机制，它允许您指定下次快照中要包括那些改动。</p>
-<h1 id="git_1">Git 的命令行接口</h1>
+<h2 id="git_1">Git 的命令行接口</h2>
 <p>为了避免重复信息，我们将不会详细解释以下命令行。强烈推荐您阅读 <a href="https://git-scm.com/book/zh/v2">Pro Git 中文版</a> 或可以观看本讲座的视频来学习。</p>
 <p><code>git init</code> 初始化 git 仓库。</p>
 <div class="language-console highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="gp">$ </span>mkdir<span class="w"> </span>myproject
@@ -1181,7 +1602,7 @@ command is used for merging.</p>
 <li><code>git mergetool</code>: 使用工具来处理合并冲突</li>
 <li><code>git rebase</code>: 将一系列补丁变基（rebase）为新的基线</li>
 </ul>
-<h2 id="_7">远端操作</h2>
+<h3 id="_7">远端操作</h3>
 <ul>
 <li><code>git remote</code>: 列出远端</li>
 <li><code>git remote add &lt;name&gt; &lt;url&gt;</code>: 添加一个远端</li>
@@ -1191,14 +1612,14 @@ command is used for merging.</p>
 <li><code>git pull</code>: 相当于 <code>git fetch; git merge</code></li>
 <li><code>git clone</code>: 从远端下载仓库</li>
 </ul>
-<h2 id="_8">撤销</h2>
+<h3 id="_8">撤销</h3>
 <ul>
 <li><code>git commit --amend</code>: 编辑提交的内容或信息</li>
 <li><code>git reset HEAD &lt;file&gt;</code>: 恢复暂存的文件</li>
 <li><code>git checkout -- &lt;file&gt;</code>: 丢弃修改</li>
 <li><code>git restore</code>: git2.32 版本后取代 git reset 进行许多撤销操作</li>
 </ul>
-<h1 id="git_2">Git 高级操作</h1>
+<h2 id="git_2">Git 高级操作</h2>
 <ul>
 <li><code>git config</code>: Git 是一个 <a href="https://git-scm.com/docs/git-config">高度可定制的</a> 工具</li>
 <li><code>git clone --depth=1</code>: 浅克隆（shallow clone），不包括完整的版本历史信息</li>
@@ -1209,7 +1630,7 @@ command is used for merging.</p>
 <li><code>git bisect</code>: 通过二分查找搜索历史记录</li>
 <li><code>.gitignore</code>: <a href="https://git-scm.com/docs/gitignore">指定</a> 故意不追踪的文件</li>
 </ul>
-<h1 id="_9">杂项</h1>
+<h2 id="_9">杂项</h2>
 <ul>
 <li><strong>图形用户界面</strong>: Git 的 <a href="https://git-scm.com/downloads/guis">图形用户界面客户端</a> 有很多，但是我们自己并不使用这些图形用户界面的客户端，我们选择使用命令行接口</li>
 <li><strong>Shell 集成</strong>: 将 Git 状态集成到您的 shell 中会非常方便。(<a href="https://github.com/olivierverdier/zsh-git-prompt">zsh</a>, <a href="https://github.com/magicmonty/bash-git-prompt">bash</a>)。<a href="https://github.com/ohmyzsh/ohmyzsh">Oh My Zsh</a> 这样的框架中一般已经集成了这一功能</li>
@@ -1219,7 +1640,7 @@ command is used for merging.</p>
 <li><strong>GitHub</strong>: Git 并不等同于 GitHub。 在 GitHub 中您需要使用一个被称作 <a href="https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests">拉取请求（pull request）</a> 的方法来向其他项目贡献代码</li>
 <li><strong>其他 Git 提供商</strong>: GitHub 并不是唯一的。还有像 <a href="https://about.gitlab.com/">GitLab</a> 和 <a href="https://bitbucket.org/">BitBucket</a> 这样的平台。</li>
 </ul>
-<h1 id="_10">资源</h1>
+<h2 id="_10">资源</h2>
 <ul>
 <li><a href="https://git-scm.com/book/en/v2">Pro Git</a> ，<strong>强烈推荐</strong>！学习前五章的内容可以教会您流畅使用 Git 的绝大多数技巧，因为您已经理解了 Git 的数据模型。后面的章节提供了很多有趣的高级主题。（<a href="https://git-scm.com/book/zh/v2">Pro Git 中文版</a>）；</li>
 <li><a href="https://ohshitgit.com/">Oh Shit, Git!?!</a> ，简短的介绍了如何从 Git 错误中恢复；</li>
@@ -1228,7 +1649,7 @@ command is used for merging.</p>
 <li><a href="https://smusamashah.github.io/blog/2017/10/14/explain-git-in-simple-words">How to explain git in simple words</a>；</li>
 <li><a href="https://learngitbranching.js.org/">Learn Git Branching</a> 通过基于浏览器的游戏来学习 Git ；</li>
 </ul>
-<h1 id="_11">课后练习</h1>
+<h2 id="_11">课后练习</h2>
 <p><a href="{{site.url}}/{{site.solution_url}}/{{page.solution.url}}">习题解答</a>
 1. 如果您之前从来没有用过 Git，推荐您阅读 <a href="https://git-scm.com/book/en/v2">Pro Git</a> 的前几章，或者完成像 <a href="https://learngitbranching.js.org/">Learn Git Branching</a> 这样的教程。重点关注 Git 命令和数据模型相关内容；
 2. 克隆 <a href="https://github.com/missing-semester-cn/missing-semester-cn.github.io.git">本课程网站的仓库</a>
@@ -1240,7 +1661,7 @@ command is used for merging.</p>
 5. 与其他的命令行工具一样，Git 也提供了一个名为 <code>~/.gitconfig</code> 配置文件 (或 dotfile)。请在 <code>~/.gitconfig</code> 中创建一个别名，使您在运行 <code>git graph</code> 时，您可以得到 <code>git log --all --graph --decorate --oneline</code> 的输出结果；
 6. 您可以通过执行 <code>git config --global core.excludesfile ~/.gitignore_global</code> 来设置全局忽略文件的位置，这会告诉 Git 使用该文件，但您仍需要手动在该路径创建 <code>~/.gitignore_global</code> 文件。配置您的全局 gitignore 文件来自动忽略系统或编辑器的临时文件，例如 <code>.DS_Store</code>；
 7. Fork <a href="https://github.com/missing-semester-cn/missing-semester-cn.github.io.git">本课程网站的仓库</a>，找找有没有错别字或其他可以改进的地方，在 GitHub 上发起拉取请求（Pull Request)；</p>
-<h1 id="_12">个人笔记</h1>
+<h2 id="_12">个人笔记</h2>
 <p><code>git log --all --graph --decorate</code></p>
 <p><code>git checkout 42fb7a</code> 会回到历史值（你访问的哈希值对应的值）所以使用它可能有一些问题比如 checkout -f可能强制修改，删除你的更改。</p>
 <p>head-&gt; master 说明目前查看的是最新版本 如果head指向别处，此时查看的就是head处的版本</p>
