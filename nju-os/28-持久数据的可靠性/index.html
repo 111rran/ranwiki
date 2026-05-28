@@ -1,0 +1,2956 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../27-FAT%E5%92%8CUNIX%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/">
+      
+      
+        <link rel="next" href="../29-Xv6%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E5%AE%9E%E7%8E%B0/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>28-持久数据的可靠性 - XMUM Ran WIKI</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="XMUM Ran WIKI" class="md-header__button md-logo" aria-label="XMUM Ran WIKI" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            XMUM Ran WIKI
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              28-持久数据的可靠性
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/111rran/ranwiki" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ranwiki
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../.." class="md-tabs__link">
+          
+  
+  
+  网站介绍
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../test/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  动态规划
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../course-shell/" class="md-tabs__link">
+          
+  
+  
+  shell脚本
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../version-control/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  版本控制
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../cs336/assignment1/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  CS336
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../papers/Engram/" class="md-tabs__link">
+          
+  
+  
+  论文解读
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+  NJU OS
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../semesters/Paper.md" class="md-tabs__link">
+          
+  
+  
+  XMUM-资料
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="XMUM Ran WIKI" class="md-nav__button md-logo" aria-label="XMUM Ran WIKI" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    XMUM Ran WIKI
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/111rran/ranwiki" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ranwiki
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    网站介绍
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    网站介绍
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    如何贡献
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    动态规划
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    shell脚本
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    shell脚本
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-shell/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    shell入门
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../shell-tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    shell工具
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../version-control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    版本控制
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cs336/assignment1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CS336
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    论文解读
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    论文解读
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../papers/Engram/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Engram
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NJU OS
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    NJU OS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    笔记来源
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01-操作系统概述
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%8A%E7%9A%84%E7%A8%8B%E5%BA%8F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02-操作系统上的程序
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-%E5%A4%9A%E5%A4%84%E7%90%86%E5%99%A8%E7%BC%96%E7%A8%8B-%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03-多处理器编程-从入门到放弃
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-%E7%90%86%E8%A7%A3%E5%B9%B6%E5%8F%91%E7%A8%8B%E5%BA%8F%E6%89%A7%E8%A1%8C/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04-理解并发程序执行
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-%E5%B9%B6%E5%8F%91%E6%8E%A7%E5%88%B6-%E4%BA%92%E6%96%A5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05-并发控制-互斥
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-%E5%B9%B6%E5%8F%91%E6%8E%A7%E5%88%B6-%E5%90%8C%E6%AD%A5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06-并发控制-同步
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-%E7%9C%9F%E5%AE%9E%E4%B8%96%E7%95%8C%E7%9A%84%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07-真实世界的并发编程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-%E5%B9%B6%E5%8F%91Bug%E5%92%8C%E5%BA%94%E5%AF%B9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08-并发Bug和应对
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%8A%B6%E6%80%81%E6%9C%BA%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    09-操作系统的状态机模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-%E7%8A%B6%E6%80%81%E6%9C%BA%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%BA%94%E7%94%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10-状态机模型的应用
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%8A%E7%9A%84%E8%BF%9B%E7%A8%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11-操作系统上的进程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-%E8%BF%9B%E7%A8%8B%E7%9A%84%E5%9C%B0%E5%9D%80%E7%A9%BA%E9%97%B4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12-进程的地址空间
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%E5%92%8C-UNIX-Shell/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13-系统调用和UNIX Shell
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-C%E6%A0%87%E5%87%86%E5%BA%93%E7%9A%84%E5%AE%9E%E7%8E%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14-C标准库的实现
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-A-fork%28%29-in-the-Road/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15-A fork() in the Road
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-%E5%8F%AF%E6%89%A7%E8%A1%8C%E6%96%87%E4%BB%B6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16-可执行文件
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-%E5%8F%AF%E6%89%A7%E8%A1%8C%E6%96%87%E4%BB%B6%E7%9A%84%E5%8A%A0%E8%BD%BD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17-可执行文件的加载
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-xv6%E4%BB%A3%E7%A0%81%E5%AF%BC%E8%AF%BB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18-xv6代码导读
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-Xv6%E4%B8%8A%E4%B8%8B%E6%96%87%E5%88%87%E6%8D%A2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19-Xv6上下文切换
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20-%E5%A4%84%E7%90%86%E5%99%A8%E8%B0%83%E5%BA%A6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20-处理器调度
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../21-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21-操作系统设计
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../22-%E6%9E%81%E9%99%90%E9%80%9F%E9%80%9A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%9E%E9%AA%8C/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    22-极限速通操作系统实验
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../23-%E5%AD%98%E5%82%A8%E8%AE%BE%E5%A4%87%E5%8E%9F%E7%90%86/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    23-存储设备原理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../24-%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E8%AE%BE%E5%A4%87/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    24-输入输出设备
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../25-%E8%AE%BE%E5%A4%87%E9%A9%B1%E5%8A%A8%E7%A8%8B%E5%BA%8F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    25-设备驱动程序
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../26-%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9FAPI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    26-文件系统API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../27-FAT%E5%92%8CUNIX%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    27-FAT和UNIX文件系统
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    28-持久数据的可靠性
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    28-持久数据的可靠性
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#redundant-array-of-inexpensive-disks-raid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        一、Redundant Array of Inexpensive Disks (RAID)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="一、Redundant Array of Inexpensive Disks (RAID)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1、日渐增长的持久存储需求 (1)——性能
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2、日渐增长的持久存储需求 (2)——可靠性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3raid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3、RAID: 存储设备的虚拟化
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4raid-fault-model-fail-stop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4、RAID 的 Fault Model: Fail-Stop
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5、一个最简单的想法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6raid-design-space" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6、RAID: Design Space
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7raid-4-parity-disk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7、RAID-4: Parity Disk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8raid-5-rotating-parity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8、RAID-5: Rotating Parity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9aid-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9、AID-5: 性能分析
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10raid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10、RAID: 讨论
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        二、崩溃一致性与崩溃恢复
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="二、崩溃一致性与崩溃恢复">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-fault-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1、另一种 Fault Model
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-crash-consistency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2、崩溃一致性 (Crash Consistency)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3、磁盘乱序的后果
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4file-system-checking-fsck" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4、File System Checking (FSCK)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#journaling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        三、日志 (Journaling)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="三、日志 (Journaling)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1、重新思考数据结构的存储
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-atomic-append" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2、实现 Atomic Append
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3journaling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3、Journaling: 优化
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4metadata-journaling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4、Metadata Journaling
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        总结
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../29-Xv6%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E5%AE%9E%E7%8E%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    29-Xv6文件系统实现
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../31-Android%E7%B3%BB%E7%BB%9F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    31-Android系统
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../32-%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    32-课程总结
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    XMUM-资料
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    XMUM-资料
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../semesters/Paper.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    往期试卷
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#redundant-array-of-inexpensive-disks-raid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        一、Redundant Array of Inexpensive Disks (RAID)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="一、Redundant Array of Inexpensive Disks (RAID)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1、日渐增长的持久存储需求 (1)——性能
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2、日渐增长的持久存储需求 (2)——可靠性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3raid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3、RAID: 存储设备的虚拟化
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4raid-fault-model-fail-stop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4、RAID 的 Fault Model: Fail-Stop
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5、一个最简单的想法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6raid-design-space" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6、RAID: Design Space
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7raid-4-parity-disk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7、RAID-4: Parity Disk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8raid-5-rotating-parity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8、RAID-5: Rotating Parity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9aid-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9、AID-5: 性能分析
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10raid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10、RAID: 讨论
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        二、崩溃一致性与崩溃恢复
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="二、崩溃一致性与崩溃恢复">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-fault-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1、另一种 Fault Model
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-crash-consistency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2、崩溃一致性 (Crash Consistency)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3、磁盘乱序的后果
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4file-system-checking-fsck" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4、File System Checking (FSCK)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#journaling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        三、日志 (Journaling)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="三、日志 (Journaling)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1、重新思考数据结构的存储
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-atomic-append" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2、实现 Atomic Append
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3journaling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3、Journaling: 优化
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4metadata-journaling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4、Metadata Journaling
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        总结
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<div><h1 id="_1">持久数据的可靠性</h1>
+<h2 id="overview">Overview</h2>
+<p>复习</p>
+<ul>
+<li>文件系统实现：bread/bwrite 上的数据结构<ul>
+<li>balloc/bfree</li>
+<li>文件：FAT (链表)/UNIX 文件系统 (索引)</li>
+<li>目录文件</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>本次课回答的问题</p>
+<ul>
+<li>数据结构的另一个假设：<strong>内存可靠且可以接受断电数据丢失</strong></li>
+<li><strong>Q</strong>: 持久数据是不能接受丢失的，如何保证持久数据的可靠性？</li>
+</ul>
+<hr>
+<p>本次课主要内容</p>
+<ul>
+<li>RAID (Redundant Array of Inexpensive Disks)</li>
+<li>崩溃一致性</li>
+</ul>
+<h2 id="redundant-array-of-inexpensive-disks-raid">一、Redundant Array of Inexpensive Disks (RAID)</h2>
+<h3 id="1-1">1、日渐增长的持久存储需求 (1)——性能</h3>
+<p>存储：只要 CPU (DMA) 能处理得过来，我就能提供足够的带宽！</p>
+<ul>
+<li>Computer System 的 “industry” 传统——做真实有用的系统</li>
+</ul>
+<p><img alt="img" src="http://jyywiki.cn/pages/OS/img/emc-vnx5300.jpg"></p>
+<h3 id="2-2">2、日渐增长的持久存储需求 (2)——可靠性</h3>
+<p>任何物理存储介质都有失效的可能</p>
+<ul>
+<li>你依然希望在存储设备失效的时候能保持数据的完整<ul>
+<li>极小概率事件：战争爆发/三体人进攻地球/世界毁灭 😂</li>
+<li>小概率事件：硬盘损坏<ul>
+<li>大量重复 = 必然发生 (但我们还是希望系统能照常运转)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img alt="img" src="http://jyywiki.cn/pages/OS/img/datacenter.jpg"></p>
+<h3 id="3raid">3、RAID: 存储设备的虚拟化</h3>
+<blockquote>
+<p>那么，性能和可靠性，我们能不能全都要呢？</p>
+</blockquote>
+<p>Redundant Array of Inexpensive (<em>Independent</em>) Disks (RAID)</p>
+<ul>
+<li>把多个 (不可靠的) 磁盘虚拟成一块<strong>非常可靠且性能极高</strong>的虚拟磁盘<ul>
+<li><a href="https://dl.acm.org/doi/10.1145/971701.50214">A case for redundant arrays of inexpensive disks (RAID)</a>(SIGMOD'88)</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>RAID 是一个 “反向” 的虚拟化</p>
+<ul>
+<li>进程：把一个 CPU 分时虚拟成多个虚拟 CPU</li>
+<li>虚存：把一份内存通过 MMU 虚拟成多个地址空间</li>
+<li>文件：把一个存储设备虚拟成多个虚拟磁盘</li>
+</ul>
+<h3 id="4raid-fault-model-fail-stop">4、RAID 的 Fault Model: Fail-Stop</h3>
+<p>磁盘可能在某个时刻忽然彻底无法访问</p>
+<ul>
+<li>机械故障、芯片故障……<ul>
+<li>磁盘好像就 “忽然消失” 了 (数据完全丢失)</li>
+<li>假设磁盘能报告这个问题 (如何报告？)</li>
+</ul>
+</li>
+<li><a href="https://www.usenix.org/conference/fast-08/analysis-data-corruption-storage-stack">An analysis of data corruption in the storage stack</a> (FAST'08)</li>
+</ul>
+<hr>
+<p>在那个遍地是黄金的年代</p>
+<ul>
+<li>1988: 凑几块盘，掀翻整个产业链！<ul>
+<li>“Single Large Expensive Disks” (IBM 3380), v.s.</li>
+<li>“Redundant Array of Inexpensive Disks”</li>
+</ul>
+</li>
+</ul>
+<h3 id="5">5、一个最简单的想法</h3>
+<p>在系统里多接入一块硬盘用于 Fault Tolerance (RAID-1)</p>
+<ul>
+<li>假设有两块盘A, B<ul>
+<li>同样规格，共有 n 块</li>
+</ul>
+</li>
+<li>“镜像” 虚拟磁盘V<ul>
+<li>Vi→{Ai,Bi} (1≤i≤n)</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>块读写</p>
+<ul>
+<li>bread(i)<ul>
+<li>可以从 A 或 B 中的任意一个读取</li>
+</ul>
+</li>
+<li>bwrite(i)<ul>
+<li>同时将同样的数据写入 A, B 的同一位置 </li>
+</ul>
+</li>
+<li>容错，且读速度翻倍 (假设内存远快于磁盘)</li>
+</ul>
+<h3 id="6raid-design-space">6、RAID: Design Space</h3>
+<blockquote>
+<p>RAID (虚拟化) = 虚拟磁盘块到物理磁盘块的 “映射”。</p>
+</blockquote>
+<p>两块磁盘的其他拼接方法</p>
+<ul>
+<li>顺序拼接<ul>
+<li>V1→A1, V2→A2, …, Vn→An</li>
+<li>Vn+1→B1, Vn+2→B2, …, V2n→Bn</li>
+</ul>
+</li>
+<li>交错排列 (RAID-0)<ul>
+<li>V1→A1, V2→B1</li>
+<li>V3→A2, V4→B2</li>
+<li>V2i−1→Ai, V2i→Bi</li>
+</ul>
+</li>
+<li>虽然不能容错，但可以利用好磁盘的带宽</li>
+</ul>
+<p><img alt="image-20220812215212517" src="../doc/image-20220812215212517.png"></p>
+<p>RAID: 允许 “多对多” 的映射 (一组映射称为 “条带”, stripe)</p>
+<p><img alt="image-20220812215528270" src="../doc/image-20220812215528270.png"></p>
+<p><img alt="image-20220812215732141" src="../doc/image-20220812215732141.png"></p>
+<blockquote>
+<p>RAID-10：有时能容忍两块盘坏，有时候却不能。如果我们有很多块盘，能否减少浪费？</p>
+</blockquote>
+<p>换一个问法</p>
+<p><img alt="image-20220812220208830" src="../doc/image-20220812220208830.png"></p>
+<h3 id="7raid-4-parity-disk">7、RAID-4: Parity Disk</h3>
+<p><img alt="image-20220812232253998" src="../doc/image-20220812232253998.png"></p>
+<h3 id="8raid-5-rotating-parity">8、RAID-5: Rotating Parity</h3>
+<p>“交错排列” parity block!</p>
+<p><img alt="img" src="../doc/raid5.png"></p>
+<h3 id="9aid-5">9、AID-5: 性能分析</h3>
+<p>让每一块盘都有均等的机会存储 parity</p>
+<ul>
+<li>Sequential read/write: 3x (75% 总带宽)</li>
+<li>Random read (tricky)<ul>
+<li>(read 足够大，所有磁盘都可以提供数据) 4x (100% 总带宽)</li>
+</ul>
+</li>
+<li>Random write (tricky)<ul>
+<li>D1=V1⊕V2⊕V3; 写入任意 V1,V2,V3 都需要更新 D1</li>
+<li>奇偶校验依然严重拖慢了随机写入<ul>
+<li>但至少 n 块盘可以获得 n/4 的随机写性能</li>
+<li>有一定的 scalability</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="10raid">10、RAID: 讨论</h3>
+<p>更快、更可靠、近乎免费的大容量磁盘</p>
+<ul>
+<li>革了 “高可靠性磁盘” 的命<ul>
+<li>成为今天服务器的标准配置</li>
+</ul>
+</li>
+<li>类似的里程碑<ul>
+<li><a href="https://dl.acm.org/doi/10.1145/1165389.945450">The Google file system</a> (SOSP'03) 和 <a href="https://dl.acm.org/doi/10.5555/1251254.1251264">MapReduce: Simplified data processing on large clusters</a> (OSDI'04) 开启 “大数据” 时代</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>RAID 的可靠性</p>
+<ul>
+<li>RAID 系统发生断电？<ul>
+<li>例子：RAID-1 镜像盘出现不一致的数据</li>
+</ul>
+</li>
+<li>检测到磁盘坏？<ul>
+<li>自动重组</li>
+</ul>
+</li>
+</ul>
+<h2 id="_2">二、崩溃一致性与崩溃恢复</h2>
+<h3 id="1-fault-model">1、另一种 Fault Model</h3>
+<p>磁盘并没有故障</p>
+<ul>
+<li>但操作系统内核可能 crash，系统可能断电</li>
+</ul>
+<p><img alt="img" src="../doc/cat-crash-consistency.jpg"></p>
+<p>文件系统：设备上的树结构</p>
+<ul>
+<li>即便只是 append 一个字节，也涉及多处磁盘的修改<ul>
+<li>FAT、目录文件 (文件大小) 和数据</li>
+<li>磁盘本身不提供 “all or nothing” 的支持</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-crash-consistency">2、崩溃一致性 (Crash Consistency)</h3>
+<blockquote>
+<p><strong>Crash Consistency</strong>: Move the file system from one consistent state (e.g., before the file got appended to) to another atomically (e.g., after the inode, bitmap, and new data block have been written to disk).</p>
+</blockquote>
+<p>(你们平时编程时假设不会发生的事，操作系统都要给你兜底)</p>
+<hr>
+<p>磁盘不提供多块读写 “all or nothing” 的支持</p>
+<ul>
+<li>甚至为了性能，没有顺序保证<ul>
+<li>bwrite 可能被乱序</li>
+<li>所以磁盘还提供了 bflush 等待已写入的数据落盘</li>
+<li>回到被并发编程支配的恐惧？<a href="http://jyywiki.cn/pages/OS/2022/demos/peterson-barrier.c">peterson-barrier.c</a></li>
+</ul>
+</li>
+<li>~~那我们也可以考虑提供啊：<a href="https://dl.acm.org/doi/10.5555/1855741.1855752">Transactional flash</a> (OSDI'08)~~</li>
+</ul>
+<h3 id="3">3、磁盘乱序的后果</h3>
+<p>为 FAT 文件追加写入一个 cluster (4KB) 需要更新</p>
+<ul>
+<li>目录项中的文件大小 (100 → 4196)</li>
+<li>FAT 表中维护的链表 (EOF → cluster-id, FREE → EOF)</li>
+<li>实际数据</li>
+</ul>
+<hr>
+<p>这麻烦了……</p>
+<ul>
+<li>任何一个子集的写入丢失都可能出现</li>
+<li>文件系统就进入了 “不一致” 的状态<ul>
+<li>可能违反 FAT 的基本假设<ul>
+<li>链表无环且长度和文件大小一致</li>
+<li>FREE 的 cluster 不能有入边</li>
+<li>……</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="4file-system-checking-fsck">4、File System Checking (FSCK)</h3>
+<p>根据磁盘上已有的信息，恢复出 “最可能” 的数据结构</p>
+<p><img alt="img" src="../doc/fsck-recovery.png"></p>
+<ul>
+<li><a href="https://dl.acm.org/doi/10.5555/1855741.1855751">SQCK: A declarative file system checker</a> (OSDI'08)</li>
+<li><a href="https://dl.acm.org/doi/10.1145/3281031">Towards robust file system checkers</a> (FAST'18)<ul>
+<li>“widely used file systems (EXT4, XFS, BtrFS, and F2FS) may leave the file system in an uncorrectable state if the repair procedure is interrupted unexpectedly” 😂</li>
+</ul>
+</li>
+</ul>
+<h2 id="journaling">三、日志 (Journaling)</h2>
+<h3 id="1">1、重新思考数据结构的存储</h3>
+<p>两个 “视角”</p>
+<ol>
+<li>存储实际<strong>数据结构</strong><ul>
+<li>文件系统的 “直观” 表示</li>
+<li>crash unsafe</li>
+</ul>
+</li>
+<li>Append-only 记录所有<strong>历史操作</strong><ul>
+<li>“重做” 所有操作得到数据结构的当前状态</li>
+<li>容易实现崩溃一致性</li>
+</ul>
+</li>
+</ol>
+<hr>
+<p>二者的融合</p>
+<ul>
+<li>数据结构操作发生时，用 (2) append-only 记录日志</li>
+<li>日志落盘后，用 (1) 更新数据结构</li>
+<li>崩溃后，重放日志并清除 (称为 redo log；相应也可以 undo log)</li>
+</ul>
+<h3 id="2-atomic-append">2、实现 Atomic Append</h3>
+<p>用 bread, bwrite 和 bflush 实现 append()</p>
+<p><img alt="img" src="../doc/fs-journaling.png"></p>
+<ol>
+<li>定位到 journal 的末尾 (bread)</li>
+<li>bwrite TXBegin 和所有数据结构操作</li>
+<li>bflush 等待数据落盘</li>
+<li>bwrite TXEnd</li>
+<li>bflush 等待数据落盘</li>
+<li>将数据结构操作写入实际数据结构区域</li>
+<li>等待数据落盘后，删除 (标记) 日志</li>
+</ol>
+<h3 id="3journaling">3、Journaling: 优化</h3>
+<p>现在磁盘需要写入双份的数据</p>
+<ul>
+<li>批处理 (xv6; jbd)<ul>
+<li>多次系统调用的 Tx 合并成一个，减少 log 的大小</li>
+<li>jbd: 定期 write back</li>
+</ul>
+</li>
+<li>Checksum (ext4)<ul>
+<li>不再标记 TxBegin/TxEnd</li>
+<li>直接标记 Tx 的长度和 checksum</li>
+</ul>
+</li>
+<li>Metadata journaling (ext4 default)<ul>
+<li>数据占磁盘写入的绝大部分<ul>
+<li>只对 inode 和 bitmap 做 journaling 可以提高性能</li>
+</ul>
+</li>
+<li>保证文件系统的目录结构是一致的；但数据可能丢失</li>
+</ul>
+</li>
+</ul>
+<h3 id="4metadata-journaling">4、Metadata Journaling</h3>
+<p>从应用视角来看，文件系统的行为可能很怪异</p>
+<ul>
+<li>各类系统软件 (git, sqlite, gdbm, ...) 不幸中招<ul>
+<li><a href="https://cn.bing.com/search?q=All+file+systems+are+not+created+equal%3A+On+the+complexity+of+crafting+crash-consistent+applications&amp;form=APMCS1&amp;PC=APMC">All file systems are not created equal: On the complexity of crafting crash-consistent applications</a> (OSDI'14)</li>
+<li>(os-workbench 里的小秘密)</li>
+</ul>
+</li>
+<li>更多的应用程序可能发生 data loss<ul>
+<li>我们的工作: GNU coreutils, gmake, gzip, ... 也有问题</li>
+<li><a href="https://dl.acm.org/doi/10.1145/2950290.2950327">Crash consistency validation made easy</a> (FSE'16)</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>更为一劳永逸的方案：TxOS</p>
+<ul>
+<li>xbegin/xend/xabort 系统调用实现跨 syscall 的 “all-or-nothing”<ul>
+<li>应用场景：数据更新、软件更新、check-use……</li>
+<li><a href="https://dl.acm.org/doi/10.1145/1629575.1629591">Operating systems transactions</a> (SOSP'09)</li>
+</ul>
+</li>
+</ul>
+<h2 id="_3">总结</h2>
+<p>本次课回答的问题</p>
+<ul>
+<li>
+<p>Q</p>
+<p>: 如何保证持久数据的可靠性？</p>
+<ul>
+<li>硬件冗余：RAID</li>
+<li>软件容错：fsck 和 journaling</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>Takeaway messages</p>
+<ul>
+<li>多个 bwrite 不保证顺序和原子性</li>
+<li>Journaling: 数据结构的两个视角<ul>
+<li>真实的数据结构</li>
+<li>执行的历史操作</li>
+</ul>
+</li>
+</ul></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../27-FAT%E5%92%8CUNIX%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 27-FAT和UNIX文件系统">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                27-FAT和UNIX文件系统
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../29-Xv6%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E5%AE%9E%E7%8E%B0/" class="md-footer__link md-footer__link--next" aria-label="Next: 29-Xv6文件系统实现">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                29-Xv6文件系统实现
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 - 2025 lkkkkt
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.tracking", "navigation.footer", "content.code.select", "content.code.copy", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
