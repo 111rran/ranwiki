@@ -19,7 +19,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
@@ -253,7 +253,7 @@
   
     
   
-  动态规划
+  测试
 
       </a>
     </li>
@@ -560,7 +560,7 @@
   <span class="md-ellipsis">
     
   
-    动态规划
+    测试
   
 
     
@@ -2073,7 +2073,7 @@
 <p>编写 <code>bash</code> 脚本有时候会很别扭和反直觉。例如 <a href="https://github.com/koalaman/shellcheck">shellcheck</a> 这样的工具可以帮助你定位 sh/bash 脚本中的错误。</p>
 <p>注意，脚本并不一定只有用 bash 写才能在终端里调用。比如说，这是一段 Python 脚本，作用是将输入的参数倒序输出：</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="ch">#!/usr/local/bin/python</span>
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="kn">import</span> <span class="nn">sys</span>
 </span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="k">for</span> <span class="n">arg</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">:]):</span>
 </span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span>
 </span></code></pre></div>
@@ -2155,7 +2155,7 @@
 <p>Fasd 基于 <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Tech/Places/Frecency_algorithm"><em>frecency</em> </a> 对文件和文件排序，也就是说它会同时针对频率（<em>frequency</em>）和时效（<em>recency</em>）进行排序。默认情况下，<code>fasd</code> 使用命令 <code>z</code> 帮助我们快速切换到最常访问的目录。例如， 如果您经常访问 <code>/home/user/files/cool_project</code> 目录，那么可以直接使用 <code>z cool</code> 跳转到该目录。对于 autojump，则使用 <code>j cool</code> 代替即可。</p>
 <p>还有一些更复杂的工具可以用来概览目录结构，例如 <a href="https://linux.die.net/man/1/tree"><code>tree</code></a>, <a href="https://github.com/Canop/broot"><code>broot</code></a> 或更加完整的文件管理器，例如 <a href="https://github.com/jarun/nnn"><code>nnn</code></a> 或 <a href="https://github.com/ranger/ranger"><code>ranger</code></a>。</p>
 <h1 id="_5">课后练习</h1>
-<p><a href="{{site.url}}/{{site.solution_url}}/{{page.solution.url}}">习题解答</a></p>
+<p><a href="%7B%7Bsite.url%7D%7D/%7B%7Bsite.solution_url%7D%7D/%7B%7Bpage.solution.url%7D%7D">习题解答</a></p>
 <ol>
 <li>
 <p>阅读 <a href="https://man7.org/linux/man-pages/man1/ls.1.html"><code>man ls</code></a> ，然后使用 <code>ls</code> 命令进行如下操作：</p>
